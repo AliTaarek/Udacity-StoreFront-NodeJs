@@ -1,0 +1,16 @@
+{
+    "dev":{
+        "driver":"pg",
+        "host":"localhost",
+        "database":"storefront",
+        "user":"ali",
+        "password":"ali123456"
+    },
+    "test":{
+        "driver":"pg",
+        "host":"localhost",
+        "database":"storefront_test",
+        "user":"ali",
+        "password":"ali123456"
+    }
+}
