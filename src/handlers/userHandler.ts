@@ -65,7 +65,8 @@ const create = async (req: Request, res: Response) => {
       return
     }
     const newUser: user = await client.create(userData)
-    res.json({ user: newUser })
+    const token = jwt.sign({ user: newUser }, secretKey)
+    res.json({ user: newUser, token: token })
   } catch (err) {
     res.status(400)
     res.json({ message: err })
@@ -125,7 +126,7 @@ const login = async (req: Request, res: Response) => {
 const userRouter = (app: express.Application) => {
   app.get('/users', verifyAuthToken, index)
   app.get('/users/:id', verifyAuthToken, show)
-  app.post('/users/create', verifyAuthToken, create)
+  app.post('/users/create', create)
   app.post('/users/login', login)
   app.put('/users/:id', verifyAuthToken, update)
 }
