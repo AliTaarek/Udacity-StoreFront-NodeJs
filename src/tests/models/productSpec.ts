@@ -69,8 +69,4 @@ describe('Product Model', () => {
     }
   })
 
-  it('delete method should delete the product', async () => {
-    const result: product = await testProduct.delete(1)
-    expect(result).toBeUndefined()
-  })
 })

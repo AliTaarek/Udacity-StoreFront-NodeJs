@@ -38,11 +38,6 @@ describe('User Model', () => {
     }
   })
 
-  it('index method should return a list of users', async () => {
-    const result: user[] = await testUser.index()
-    expect(result.length).not.toEqual(0)
-  })
-
   it('show method should return the correct user', async () => {
     const result: test = await testUser.show(1)
     if (result) {
@@ -52,16 +47,16 @@ describe('User Model', () => {
     }
   })
 
-  // it('update method should update the user', async () => {
-  //   const result: test = await testUser.update(1, {
-  //     firstName: 'John',
-  //     lastName: 'Doe',
-  //     userName: 'johnny',
-  //   })
-  //   if (result) {
-  //     expect(result.first_name).toBe('John')
-  //     expect(result.last_name).toBe('Doe')
-  //     expect(result.user_name).toBe('johnny')
-  //   }
-  // })
+  it('update method should update the user', async () => {
+    const result: test = await testUser.update(1, {
+      firstName: 'John',
+      lastName: 'Doe',
+      userName: 'johnny',
+    })
+    if (result) {
+      expect(result.first_name).toBe('John')
+      expect(result.last_name).toBe('Doe')
+      expect(result.user_name).toBe('johnny')
+    }
+  })
 })
