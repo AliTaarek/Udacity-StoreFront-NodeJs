@@ -6,7 +6,7 @@
   "scripts": {
     "server": "nodemon src/server.ts",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./src --onSuccess 'node ./dist/server.js'",
-    "jasmine": "db-migrate --env test up && jasmine && db-migrate --env test down",
+    "jasmine": "db-migrate --env test up && ENV=test jasmine && db-migrate --env test down",
     "build": "npx tsc",
     "test": "npm run build && npm run jasmine",
     "db-up": "db-migrate up",
